@@ -9,7 +9,6 @@ import bannerImage from '../assets/image copy.png';
 import { Search, Sparkles, MapPin, ChevronRight, Flame } from 'lucide-react';
 
 const HomePage = ({ searchQuery = '', setSearchQuery }) => {
-  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

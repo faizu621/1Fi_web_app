@@ -18,8 +18,6 @@ import {
   Truck,
   ChevronDown,
   ArrowLeft,
-  Share2,
-  Heart,
   Sparkles
 } from 'lucide-react';
 import { formatCurrency } from '../utils/formatters.js';
