@@ -15,7 +15,7 @@ const MainLayout = ({ children, searchQuery, setSearchQuery }) => {
         <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       )}
       
-      <main className={`flex-1 max-w-7xl w-full mx-auto px-2 sm:px-4 lg:px-6 ${isMobileAppView ? 'py-2 sm:py-4' : 'py-6 sm:py-8'}`}>
+      <main className={`flex-1 max-w-7xl w-full mx-auto ${isMobileAppView ? 'py-0 sm:py-2 px-0 sm:px-4' : 'py-6 sm:py-8 px-4 sm:px-6'}`}>
         {children}
       </main>
 
