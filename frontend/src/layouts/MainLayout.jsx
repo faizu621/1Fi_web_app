@@ -6,20 +6,20 @@ import BottomNavigation from '../components/BottomNavigation.jsx';
 
 const MainLayout = ({ children, searchQuery, setSearchQuery }) => {
   const location = useLocation();
-  // Remove traditional header and footer on main shop page http://localhost:3001/
-  const isMainShopView = location.pathname === '/';
+  // Mobile app mode on shop and product detail pages
+  const isMobileAppView = location.pathname === '/' || location.pathname.startsWith('/products');
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F4F5F9] text-slate-900 font-sans">
-      {!isMainShopView && (
+      {!isMobileAppView && (
         <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       )}
       
-      <main className={`flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 ${isMainShopView ? 'py-4 sm:py-6' : 'py-6 sm:py-8'}`}>
+      <main className={`flex-1 max-w-7xl w-full mx-auto px-2 sm:px-4 lg:px-6 ${isMobileAppView ? 'py-2 sm:py-4' : 'py-6 sm:py-8'}`}>
         {children}
       </main>
 
-      {!isMainShopView && <Footer />}
+      {!isMobileAppView && <Footer />}
 
       {/* Floating Bottom Nav Bar replicating 1Fi Shop App */}
       <BottomNavigation />
