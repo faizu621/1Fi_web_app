@@ -98,8 +98,8 @@ const ProductDetailPage = () => {
   const visibleHighlights = showAllSpecs ? product.highlights : product.highlights.slice(0, 6);
 
   return (
-    <div className="max-w-md mx-auto space-y-4 pb-28 px-2 sm:px-3">
-      
+    <div className="max-w-xl mx-auto space-y-4 pb-28 px-2 sm:px-4">
+
       {/* Mobile Top App Header Bar */}
       <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
         <button
@@ -129,7 +129,7 @@ const ProductDetailPage = () => {
 
       {/* Main Single Column Mobile Card Stack */}
       <div className="bg-white rounded-[28px] border border-slate-200/90 shadow-sm p-4 sm:p-6 space-y-5">
-        
+
         {/* Product Gallery (Main Image, Thumbnails, Cashback Badge, Rating Pill) */}
         <ProductGallery
           images={product.images}
