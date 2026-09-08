@@ -121,62 +121,65 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
   return (
     <div className="max-w-2xl mx-auto space-y-4 pb-28 px-2 sm:px-4">
       
-      {/* 1. Official Hero Banner Image (Centered Container, Unrounded) */}
-      <div className="w-full relative overflow-hidden shadow-sm">
-        <img
-          src={bannerImage}
-          alt="Shop today, Pay later using Mutual funds"
-          className="w-full h-auto object-cover block"
-        />
-      </div>
+      {/* Hero Banner Container with 50% Tab Height Overlap */}
+      <div className="relative w-full overflow-visible pb-6 sm:pb-7">
+        {/* Banner Image */}
+        <div className="w-full overflow-hidden shadow-sm">
+          <img
+            src={bannerImage}
+            alt="Shop today, Pay later using Mutual funds"
+            className="w-full h-auto object-cover block"
+          />
+        </div>
 
-      {/* 2. Sub-Header Tabs (Positioned overlapping bottom edge of banner by exactly 50% height) */}
-      <div className="relative -mt-6 sm:-mt-7 z-20 w-11/12 max-w-lg mx-auto">
-        <div className="bg-[#F0F1F6] p-1 rounded-full flex items-center justify-between shadow-lg border border-white/90 text-xs sm:text-sm font-extrabold gap-1">
-          <button
-            onClick={() => setActiveTab('top-brands')}
-            className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
-              activeTab === 'top-brands'
-                ? 'bg-white text-purple-700 shadow-md font-bold'
-                : 'text-slate-600 hover:text-slate-900 font-semibold'
-            }`}
-          >
-            <span>Top Brands</span>
-            {activeTab === 'top-brands' && (
-              <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
-            )}
-          </button>
+        {/* Sub-Header Tabs (Absolute Positioned at bottom center with exactly 50% overlap) */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 z-20 w-[92%] max-w-lg">
+          <div className="bg-[#F0F1F6] p-1 rounded-full flex items-center justify-between shadow-xl border border-white/95 text-xs sm:text-sm font-extrabold gap-1">
+            <button
+              onClick={() => setActiveTab('top-brands')}
+              className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
+                activeTab === 'top-brands'
+                  ? 'bg-white text-purple-700 shadow-md font-bold'
+                  : 'text-slate-600 hover:text-slate-900 font-semibold'
+              }`}
+            >
+              <span>Top Brands</span>
+              {activeTab === 'top-brands' && (
+                <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
+              )}
+            </button>
 
-          <button
-            onClick={() => setActiveTab('nearby-stores')}
-            className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
-              activeTab === 'nearby-stores'
-                ? 'bg-white text-purple-700 shadow-md font-bold'
-                : 'text-slate-600 hover:text-slate-900 font-semibold'
-            }`}
-          >
-            <span>Nearby Stores</span>
-            {activeTab === 'nearby-stores' && (
-              <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
-            )}
-          </button>
+            <button
+              onClick={() => setActiveTab('nearby-stores')}
+              className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
+                activeTab === 'nearby-stores'
+                  ? 'bg-white text-purple-700 shadow-md font-bold'
+                  : 'text-slate-600 hover:text-slate-900 font-semibold'
+              }`}
+            >
+              <span>Nearby Stores</span>
+              {activeTab === 'nearby-stores' && (
+                <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
+              )}
+            </button>
 
-          <button
-            onClick={() => setActiveTab('marketplace')}
-            className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
-              activeTab === 'marketplace'
-                ? 'bg-white text-purple-700 shadow-md font-bold'
-                : 'text-slate-600 hover:text-slate-900 font-semibold'
-            }`}
-          >
-            <span className="flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              1Fi Marketplace
-            </span>
-            {activeTab === 'marketplace' && (
-              <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
-            )}
-          </button>
+            <button
+              onClick={() => setActiveTab('marketplace')}
+              className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
+                activeTab === 'marketplace'
+                  ? 'bg-white text-purple-700 shadow-md font-bold'
+                  : 'text-slate-600 hover:text-slate-900 font-semibold'
+              }`}
+            >
+              <span className="flex items-center gap-1">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                1Fi Marketplace
+              </span>
+              {activeTab === 'marketplace' && (
+                <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
