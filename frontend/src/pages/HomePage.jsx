@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { getProducts } from '../services/productService.js';
 import ProductGrid from '../components/ProductGrid.jsx';
 import { ProductGridSkeleton } from '../components/LoadingSkeleton.jsx';
@@ -20,7 +19,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'air-india',
       name: 'Air India',
       emiText: 'No-cost EMIs upto 18 months',
-      badgeColor: 'bg-red-600 text-white font-black text-xs p-3 rounded-2xl flex items-center justify-center w-14 h-14',
+      badgeColor: 'bg-red-600 text-white font-black text-xs p-3 rounded-2xl flex items-center justify-center w-12 h-12',
       logoText: 'AIR INDIA',
       category: 'Travel'
     },
@@ -28,7 +27,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'apple-reseller',
       name: 'Apple Premium Reseller',
       emiText: 'No-cost EMIs upto 24 months',
-      badgeColor: 'bg-black text-white font-bold text-xs p-2 rounded-2xl flex flex-col items-center justify-center w-14 h-14',
+      badgeColor: 'bg-black text-white font-bold text-xs p-2 rounded-2xl flex flex-col items-center justify-center w-12 h-12',
       logoText: ' Reseller',
       category: 'Electronics'
     },
@@ -36,7 +35,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'caratlane',
       name: 'CaratLane',
       emiText: 'No-cost EMIs upto 6 months',
-      badgeColor: 'bg-purple-900 text-amber-200 font-bold text-[10px] p-2 rounded-2xl flex items-center justify-center w-14 h-14 text-center leading-tight',
+      badgeColor: 'bg-purple-900 text-amber-200 font-bold text-[9px] p-2 rounded-2xl flex items-center justify-center w-12 h-12 text-center leading-tight',
       logoText: 'CARATLANE',
       category: 'Jewelry'
     },
@@ -44,7 +43,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'cgh-earth',
       name: 'CGH Earth',
       emiText: 'No-cost EMIs upto 24 months',
-      badgeColor: 'bg-stone-100 text-stone-800 border border-stone-300 font-semibold text-[10px] p-2 rounded-2xl flex items-center justify-center w-14 h-14 text-center leading-tight',
+      badgeColor: 'bg-stone-100 text-stone-800 border border-stone-300 font-semibold text-[9px] p-2 rounded-2xl flex items-center justify-center w-12 h-12 text-center leading-tight',
       logoText: 'cgh earth',
       category: 'Hospitality'
     },
@@ -52,7 +51,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'croma',
       name: 'Croma',
       emiText: 'No-cost EMIs upto 6 months',
-      badgeColor: 'bg-teal-700 text-white font-extrabold text-xs p-2 rounded-2xl flex items-center justify-center w-14 h-14',
+      badgeColor: 'bg-teal-700 text-white font-extrabold text-xs p-2 rounded-2xl flex items-center justify-center w-12 h-12',
       logoText: 'cromā',
       category: 'Electronics'
     },
@@ -60,7 +59,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'easemytrip',
       name: 'EaseMyTrip Holiday',
       emiText: 'No-cost EMIs upto 24 months',
-      badgeColor: 'bg-sky-600 text-white font-bold text-[9px] p-2 rounded-2xl flex items-center justify-center w-14 h-14 text-center leading-tight',
+      badgeColor: 'bg-sky-600 text-white font-bold text-[8px] p-2 rounded-2xl flex items-center justify-center w-12 h-12 text-center leading-tight',
       logoText: 'EaseMyTrip',
       category: 'Travel'
     },
@@ -68,7 +67,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'flipkart',
       name: 'Flipkart',
       emiText: 'No-cost EMIs upto 24 months',
-      badgeColor: 'bg-blue-600 text-yellow-300 font-extrabold text-xs p-2 rounded-2xl flex items-center justify-center w-14 h-14',
+      badgeColor: 'bg-blue-600 text-yellow-300 font-extrabold text-xs p-2 rounded-2xl flex items-center justify-center w-12 h-12',
       logoText: 'FK',
       category: 'Shopping'
     },
@@ -76,7 +75,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'makemytrip',
       name: 'MakeMyTrip',
       emiText: 'No-cost EMIs upto 18 months',
-      badgeColor: 'bg-red-500 text-white font-black text-xs p-2 rounded-2xl flex items-center justify-center w-14 h-14',
+      badgeColor: 'bg-red-500 text-white font-black text-xs p-2 rounded-2xl flex items-center justify-center w-12 h-12',
       logoText: 'MMT',
       category: 'Travel'
     },
@@ -84,7 +83,7 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
       id: 'samsung',
       name: 'Samsung Flagship Store',
       emiText: 'No-cost EMIs upto 24 months',
-      badgeColor: 'bg-blue-900 text-white font-extrabold text-xs p-2 rounded-2xl flex items-center justify-center w-14 h-14',
+      badgeColor: 'bg-blue-900 text-white font-extrabold text-xs p-2 rounded-2xl flex items-center justify-center w-12 h-12',
       logoText: 'SAMSUNG',
       category: 'Electronics'
     }
@@ -118,9 +117,9 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
   );
 
   return (
-    <div className="max-w-2xl mx-auto space-y-4 pb-28 px-2 sm:px-4">
+    <div className="max-w-md mx-auto space-y-4 pb-28 px-2 sm:px-3">
       
-      {/* Hero Banner Container with 50% Tab Height Overlap */}
+      {/* 1. Hero Banner Container (Compressed to Mobile Screen Width, 50% Tab Overlap) */}
       <div className="relative w-full overflow-visible pb-6 sm:pb-7">
         {/* Banner Image */}
         <div className="w-full overflow-hidden shadow-sm">
@@ -132,11 +131,11 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
         </div>
 
         {/* Sub-Header Tabs (Absolute Positioned at bottom center with exactly 50% overlap) */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 z-20 w-[92%] max-w-lg">
-          <div className="bg-[#F0F1F6] p-1 rounded-full flex items-center justify-between shadow-xl border border-white/95 text-xs sm:text-sm font-extrabold gap-1">
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 z-20 w-[94%] max-w-sm">
+          <div className="bg-[#F0F1F6] p-1 rounded-full flex items-center justify-between shadow-xl border border-white/95 text-[11px] sm:text-xs font-extrabold gap-0.5">
             <button
               onClick={() => setActiveTab('top-brands')}
-              className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
+              className={`flex-1 py-2 rounded-full transition-all text-center flex flex-col items-center justify-center ${
                 activeTab === 'top-brands'
                   ? 'bg-white text-purple-700 shadow-md font-bold'
                   : 'text-slate-600 hover:text-slate-900 font-semibold'
@@ -144,13 +143,13 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
             >
               <span>Top Brands</span>
               {activeTab === 'top-brands' && (
-                <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
+                <span className="w-5 h-0.5 bg-purple-600 rounded-full mt-0.5" />
               )}
             </button>
 
             <button
               onClick={() => setActiveTab('nearby-stores')}
-              className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
+              className={`flex-1 py-2 rounded-full transition-all text-center flex flex-col items-center justify-center ${
                 activeTab === 'nearby-stores'
                   ? 'bg-white text-purple-700 shadow-md font-bold'
                   : 'text-slate-600 hover:text-slate-900 font-semibold'
@@ -158,55 +157,55 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
             >
               <span>Nearby Stores</span>
               {activeTab === 'nearby-stores' && (
-                <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
+                <span className="w-5 h-0.5 bg-purple-600 rounded-full mt-0.5" />
               )}
             </button>
 
             <button
               onClick={() => setActiveTab('marketplace')}
-              className={`flex-1 py-2.5 rounded-full transition-all text-center flex flex-col items-center justify-center ${
+              className={`flex-1 py-2 rounded-full transition-all text-center flex flex-col items-center justify-center ${
                 activeTab === 'marketplace'
                   ? 'bg-white text-purple-700 shadow-md font-bold'
                   : 'text-slate-600 hover:text-slate-900 font-semibold'
               }`}
             >
-              <span className="flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                1Fi Marketplace
+              <span className="flex items-center gap-0.5">
+                <Sparkles className="w-3 h-3 text-amber-500" />
+                1Fi Market
               </span>
               {activeTab === 'marketplace' && (
-                <span className="w-6 h-0.5 bg-purple-600 rounded-full mt-0.5" />
+                <span className="w-5 h-0.5 bg-purple-600 rounded-full mt-0.5" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* 3. Search Input Bar */}
-      <div className="relative w-full pt-1">
+      {/* 2. Search Input Bar */}
+      <div className="relative w-full pt-0.5">
         <input
           type="text"
           placeholder={
             activeTab === 'marketplace'
-              ? 'Search iPhone 17 Pro, Galaxy S24, Pixel 9...'
+              ? 'Search iPhone 17 Pro, Galaxy S24...'
               : activeTab === 'top-brands'
               ? 'Search online stores...'
-              : 'Search nearby retailer stores...'
+              : 'Search nearby stores...'
           }
           value={searchQuery}
           onChange={(e) => setSearchQuery && setSearchQuery(e.target.value)}
-          className="w-full bg-white text-slate-800 text-sm pl-12 pr-4 py-3 rounded-full border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all placeholder:text-slate-400"
+          className="w-full bg-white text-slate-800 text-xs sm:text-sm pl-11 pr-4 py-3 rounded-full border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all placeholder:text-slate-400"
         />
-        <Search className="w-5 h-5 text-slate-400 absolute left-4 top-3" />
+        <Search className="w-4 h-4 text-slate-400 absolute left-4 top-3.5" />
       </div>
 
       {/* TAB CONTENT SECTIONS */}
 
       {/* Tab A: Top Brands */}
       {activeTab === 'top-brands' && (
-        <div className="space-y-4 pt-1">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">
+        <div className="space-y-3 pt-0.5">
+          <div className="flex items-center justify-between px-1">
+            <h2 className="text-lg font-extrabold text-slate-900 tracking-tight">
               Top Brands
             </h2>
             <span className="text-xs text-purple-600 font-semibold">
@@ -214,30 +213,30 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
             </span>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             {filteredBrands.map((brand) => (
               <div
                 key={brand.id}
                 onClick={() => setActiveTab('marketplace')}
-                className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex items-center justify-between gap-4 cursor-pointer group"
+                className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex items-center justify-between gap-3 cursor-pointer group"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <div className={brand.badgeColor}>
                     {brand.logoText}
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-slate-900 text-base group-hover:text-purple-600 transition-colors">
+                    <h3 className="font-extrabold text-slate-900 text-sm group-hover:text-purple-600 transition-colors">
                       {brand.name}
                     </h3>
-                    <p className="text-xs text-slate-500 font-medium mt-0.5">
+                    <p className="text-[11px] text-slate-500 font-medium mt-0.5">
                       {brand.emiText}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1 text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1.5 rounded-full group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                <div className="flex items-center gap-1 text-[11px] font-semibold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full group-hover:bg-purple-600 group-hover:text-white transition-colors">
                   <span>Shop</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  <ChevronRight className="w-3 h-3" />
                 </div>
               </div>
             ))}
@@ -247,15 +246,15 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
 
       {/* Tab B: Nearby Stores */}
       {activeTab === 'nearby-stores' && (
-        <div className="bg-white rounded-3xl p-8 border border-slate-200 text-center space-y-4 shadow-sm pt-2">
-          <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto">
-            <MapPin className="w-8 h-8" />
+        <div className="bg-white rounded-3xl p-6 border border-slate-200 text-center space-y-3 shadow-sm pt-2">
+          <div className="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto">
+            <MapPin className="w-7 h-7" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Nearby Retail Partner Stores</h3>
-          <p className="text-xs text-slate-500 max-w-sm mx-auto">
+          <h3 className="text-base font-bold text-slate-900">Nearby Retail Partner Stores</h3>
+          <p className="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
             Discover offline retail stores accepting 1Fi Mutual Fund Backed EMIs in your location.
           </p>
-          <div className="inline-block bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-xs font-semibold border border-purple-200">
+          <div className="inline-block bg-purple-50 text-purple-700 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-purple-200">
             📍 Location Services Active
           </div>
         </div>
@@ -263,24 +262,24 @@ const HomePage = ({ searchQuery = '', setSearchQuery }) => {
 
       {/* Tab C: 1Fi Marketplace (Full Implementation) */}
       {activeTab === 'marketplace' && (
-        <div className="space-y-4 pt-1">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="space-y-3 pt-0.5">
+          <div className="flex items-center justify-between gap-2 px-1">
             <div>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-                <Flame className="w-6 h-6 text-orange-500" /> 1Fi Smartphone Marketplace
+              <h2 className="text-lg font-extrabold text-slate-900 tracking-tight flex items-center gap-1.5">
+                <Flame className="w-5 h-5 text-orange-500" /> 1Fi Marketplace
               </h2>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Buy flagship smartphones on Mutual Fund Backed No-Cost EMIs
+              <p className="text-[11px] text-slate-500">
+                Mutual Fund Backed No-Cost EMIs
               </p>
             </div>
 
             {/* Brand Filter Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+            <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
               {['All', 'Apple', 'Samsung', 'Google'].map((b) => (
                 <button
                   key={b}
                   onClick={() => setSelectedBrand(b)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border shrink-0 ${
+                  className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all border shrink-0 ${
                     selectedBrand === b
                       ? 'bg-purple-600 text-white border-purple-600 shadow-sm'
                       : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50'

@@ -98,7 +98,7 @@ const ProductDetailPage = () => {
   const visibleHighlights = showAllSpecs ? product.highlights : product.highlights.slice(0, 6);
 
   return (
-    <div className="max-w-2xl mx-auto space-y-4 pb-28 px-1 sm:px-4">
+    <div className="max-w-md mx-auto space-y-4 pb-28 px-2 sm:px-3">
       
       {/* Mobile Top App Header Bar */}
       <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
